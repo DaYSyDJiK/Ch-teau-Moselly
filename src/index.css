@@ -115,6 +115,12 @@ footer .bi:hover {
   border-radius: 12px;
   height: 100%;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.feature-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
 }
 
 .feature-card h3 {
