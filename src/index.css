@@ -9,8 +9,14 @@ body {
   font-family: "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* Footer */
+
 footer .bi {
   transition: color 0.2s ease;
+}
+
+.site-footer {
+  background-color: #1F3A5F; /* Bleu Minéral */
 }
 
 footer .bi:hover {
@@ -32,3 +38,257 @@ footer .bi:hover {
   text-decoration-color: rgba(255, 255, 255, 0.6);
 }
 
+/* Fin Footer */
+
+/* Hero du Home */
+
+.hero {
+  min-height: 85vh;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url("./images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff; /* ✅ texte blanc */
+}
+
+
+
+.hero-content {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+}
+
+.hero h2 {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+.hero p {
+  max-width: 700px;
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.hero .btn {
+  margin-top: 1.5rem;
+}
+
+/* Fin Hero du Home */
+
+
+/* Animation du scroll */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fin animation du scroll */
+
+/* Section 2 "Pourquoi choisir ici" */
+
+.features {
+  background: #f8f9fa;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  height: 100%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.mini-gallery {
+  background: #fff;
+}
+
+.gallery-marquee {
+  max-width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+
+  padding: 14px; /* ✅ padding ici */
+}
+
+.gallery-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: gallery-scroll 18s linear infinite;
+}
+
+/* Chaque set contient exactement les 4 images, avec le même gap */
+.gallery-set {
+  display: flex;
+  gap: 16px;
+  padding-right: 16px;
+}
+
+
+
+.gallery-card {
+  flex: 0 0 340px;            /* 2 cartes visibles dans 720px environ */
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f3f3f3;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+/* On déplace la piste exactement de la largeur du 1er set (donc 50% de la piste totale) */
+@keyframes gallery-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* optionnel : pause au hover */
+.gallery-marquee:hover .gallery-track {
+  animation-play-state: paused;
+}
+
+@media (max-width: 576px) {
+  .gallery-marquee { max-width: 92vw; }
+  .gallery-card { flex-basis: 70vw; }
+  .gallery-card img { height: 170px; }
+}
+
+
+.section {
+  padding: 4.5rem 0;   /* espace vertical */
+}
+
+
+.navbar-color {
+  background-color: #1F3A5F;
+}
+
+.btn-principal {
+  background-color: #1F3A5F;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 9px;
+  transition: background-color 0.3s ease;
+}
+.btn-principal:hover {
+  background-color: #162C49;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.btn-secondaire {
+  background-color: #C7A76A;
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.3rem;
+  font-size: 1rem;
+  border-radius: 9px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondaire:hover {
+  background-color: #B59450;
+  color: #dbdbdb;
+  text-decoration: none;
+}
+
+.titre-secondaire {
+  color :#C7A76A;
+}
+
+.titre-principal {
+  color :#1F3A5F; 
+}
+
+/* 🎩 Couleur primaire (identité)
+
+Bleu Minéral
+#1F3A5F
+stabilité, élégance, confiance, prestige
+
+🥂 Couleur secondaire (luxe & célébration)
+Or Champagne
+#C7A76A
+chaleur, fête, union, raffinement
+
+🌿 Couleur d’accent naturelle
+Vert Sauge
+#8FAE9B
+nature, douceur, sérénité
+
+☁️ Neutre clair principal
+Ivoire
+#F6F1EB
+lumière, pureté, mariage
+
+🪨 Neutre structurant
+Gris Pierre
+#C4C4C4
+
+🕯 Neutre foncé (texte & contraste)
+Anthracite doux
+#2B2B2B
+
+Usage	Couleur
+Fond principal	#F6F1EB
+Texte principal	#2B2B2B
+Titres	#1F3A5F
+Bouton principal	#1F3A5F
+Bouton hover	#162C49
+CTA secondaire	#C7A76A
+Accent déco	#8FAE9B
+Sections alternées	#F0E8DE
+
+
+
+Bouton principal
+Fond : #1F3A5F
+Texte : #FFFFFF
+
+Bouton secondaire (réservation)
+Fond : #C7A76A
+Texte : #1F3A5F
+
+Badge / détail chic
+Fond : #8FAE9B
+
+Bleu ↔ Or → contraste complémentaire chaud/froid → équilibre émotionnel
+
+Bleu → Vert Sauge → couleurs analogues → cohérence visuelle
+
+Ivoire & pierre → neutres chauds → atmosphère lumineuse & élégante
+
+*/

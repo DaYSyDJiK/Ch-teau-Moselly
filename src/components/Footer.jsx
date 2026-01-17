@@ -7,7 +7,7 @@ export default function Footer() {
         (isActive ? "text-white fw-semibold" : "");
 
     return (
-        <footer className="site-footer bg-dark text-white py-4 mt-auto">
+        <footer className="site-footer text-white py-4 mt-auto">
             <div className="container">
                 <div className="row gy-4 align-items-start">
                     {/* Colonne 1 */}
