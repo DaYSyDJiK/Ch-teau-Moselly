@@ -8,7 +8,7 @@ export default function Header() {
     const linkClass = ({ isActive }) => isActive ? "nav-link active fw-bold" : "nav-link";
 
     return (
-        <Navbar expand="lg bg-dark text-white" variant="dark">
+        <Navbar expand="lg navbar-color text-white" variant="dark">
             <Container className="py-2">
                 <Navbar.Brand as={NavLink} to="/">Château Moselly</Navbar.Brand>
                 <Navbar.Toggle aria-controls="main-navbar" />
