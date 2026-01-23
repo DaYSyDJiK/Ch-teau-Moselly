@@ -195,6 +195,11 @@ footer .bi:hover {
   padding: 4.5rem 0;   /* espace vertical */
 }
 
+.section--tight {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 
 .navbar-color {
   background-color: #1F3A5F;
@@ -266,6 +271,46 @@ footer .bi:hover {
   transform: translateY(-3px);
   box-shadow: 0 14px 34px rgba(0,0,0,0.10);
 }
+
+.map-card iframe {
+  border: 0;
+}
+
+.info-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chip {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+
+.chip:hover {
+  transform :translateY(-3px);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.10);
+  cursor: pointer;
+}
+
+.info-box {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.info-box ul {
+  padding-left: 18px;
+  margin: 0;
+  color: #4b5563; /* proche text-secondary mais un peu plus premium */
+}
+
 
 
 /* 🎩 Couleur primaire (identité)

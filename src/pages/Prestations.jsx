@@ -29,14 +29,14 @@ export default function Prestations() {
 
       <div className="section">
         <div className="container">
-          <h2 className="titre-principal">Prestations</h2>
+          <h1 className="titre-principal">Prestations</h1>
 
           <div className="row my-4">
             <div className="col-12 col-md-4 my-3 reveal">
               <div className="card h-100 shadow feature-card d-flex">
                 <div className="card-body d-flex flex-column">
                   <i className="bi bi-stars fs-2 titre-secondaire"></i>
-                  <h3 className="titre-principal py-3">Mariage & cérémonies</h3>
+                  <h2 className="titre-principal h3 py-3">Mariage & cérémonies</h2>
                   <p>Organisez votre mariage dans un cadre naturel et elegant, loin de l'agitation urbaine. Le Château Moselly vous accueille pour celebrer ce moment unique dans une atmosphere intime et authentique.</p>
                   <ul className="py-3">
                     <li>Un écrin de verdure pour partager un moment inoubliable</li>
@@ -55,7 +55,7 @@ export default function Prestations() {
               <div className="card h-100 shadow feature-card d-flex">
                 <div className="card-body d-flex flex-column">
                   <i className="bi bi-people fs-2 titre-secondaire"></i>
-                  <h3 className="titre-principal py-3">Réceptions privées</h3>
+                  <h2 className="titre-principal h3 py-3">Réceptions privées</h2>
                   <p>Anniversaire, fete de famille ou reception entre proches : profitez d'un cadre naturel pour partager un moment convivial en toute liberte.</p>
                   <ul className="py-3">
                     <li>Un environnement calme, propice aux retrouvailles</li>
@@ -74,7 +74,7 @@ export default function Prestations() {
               <div className="card h-100 shadow feature-card d-flex">
                 <div className="card-body d-flex flex-column">
                   <i className="bi bi-briefcase fs-2 titre-secondaire"></i>
-                  <h3 className="titre-principal py-3">Événements d'entreprise</h3>
+                  <h2 className="titre-principal h3 py-3">Événements d'entreprise</h2>
                   <p>Offrez a vos equipes un cadre different pour vos reunions, évènements ou moments de cohesion. Un lieu propice aux échanges et a la deconnexion.</p>
                   <ul className="py-3">
                     <li>Une alternative aux lieux professionnels classiques</li>
