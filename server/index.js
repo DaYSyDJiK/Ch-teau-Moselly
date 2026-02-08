@@ -90,6 +90,44 @@ Message:
 ${message}
 `.trim();
 
+const safe = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;",
+}[c]));
+
+// Mise en forme HTML
+const html = `
+  <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #2B2B2B;">
+    <h2 style="margin: 0 0 12px; color: #1F3A5F;">Nouvelle demande de visite — Château Moselly</h2>
+
+    <div style="padding: 12px 14px; border: 1px solid #eee; border-radius: 12px; background: #fafafa; margin-bottom: 14px;">
+      <p style="margin: 0;"><strong>Nom :</strong> ${safe(prenom)} ${safe(nom)}</p>
+      <p style="margin: 0;"><strong>Email :</strong> ${safe(email)}</p>
+      <p style="margin: 0;"><strong>Téléphone :</strong> ${safe(telephone || "-")}</p>
+    </div>
+
+    <div style="padding: 12px 14px; border: 1px solid #eee; border-radius: 12px; background: #ffffff; margin-bottom: 14px;">
+      <p style="margin: 0 0 6px;"><strong>Type d'événement :</strong> ${safe(type_evenement)}</p>
+      <p style="margin: 0 0 6px;"><strong>Date souhaitée :</strong> ${safe(date_souhaitee || "-")}</p>
+      <p style="margin: 0 0 6px;"><strong>Nombre d'invités :</strong> ${safe(nb_invites || "-")}</p>
+      <p style="margin: 0;"><strong>Créneau préféré :</strong> ${safe(creneau || "-")}</p>
+    </div>
+
+    <div style="padding: 12px 14px; border-left: 4px solid #C7A76A; background: #fff; border-radius: 10px;">
+      <p style="margin: 0 0 6px;"><strong>Message :</strong></p>
+      <p style="margin: 0; white-space: pre-wrap;">${safe(message)}</p>
+    </div>
+
+    <p style="margin-top: 16px; color: #6b7280; font-size: 12px;">
+      Répondez à cet email pour répondre directement au client (Reply-To configuré).
+    </p>
+  </div>
+`.trim();
+
+
     // 3) Envoi
     await transporter.sendMail({
       from: process.env.MAIL_FROM, // ex: "Château Moselly <no-reply@...>"
