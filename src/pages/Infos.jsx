@@ -28,7 +28,7 @@ export default function Infos() {
   return (
     <>
 
-      <section className="section section--tight pt-4">
+      <section className="section section--tight pt-4 reveal">
         <div className="container pt-5">
           <h1 className="titre-principal mb-2">Informations pratiques</h1>
           <p className="text-secondary mb-0">
@@ -37,7 +37,7 @@ export default function Infos() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section reveal">
         <div className="container">
           <div className="row g-5 align-items-start">
             {/* Texte */}

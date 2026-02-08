@@ -39,11 +39,32 @@ export default function Galerie() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedImg]);
 
+  useEffect(() => {
+    const elements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          } else {
+            entry.target.classList.remove("active");
+          }
+
+        });
+      },
+      { threshold: 0.30 }
+    );
+
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
 
     <>
-      <section className="section">
+      <section className="section reveal">
         <div className="container">
           <h1 className="titre-principal mb-3">Galerie</h1>
           <p className="text-secondary mb-4">

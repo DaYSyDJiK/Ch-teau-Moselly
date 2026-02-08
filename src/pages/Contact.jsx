@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useEffect } from "react";
 
 export default function Contact() {
   const API_URL = "http://localhost:5000/api/visite";
@@ -43,9 +44,31 @@ export default function Contact() {
     }
   };
 
+  useEffect(() => {
+      const elements = document.querySelectorAll(".reveal");
+  
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            } else {
+              entry.target.classList.remove("active");
+            }
+  
+          });
+        },
+        { threshold: 0.30 }
+      );
+  
+      elements.forEach(el => observer.observe(el));
+  
+      return () => observer.disconnect();
+    }, []);
+
   return (
     <>
-      <section className="section section--tight pt-4">
+      <section className="section section--tight pt-4 reveal">
         <div className="container pt-5">
           <h1 className="titre-principal mb-2 titre-principal">Demande de visite</h1>
           <p className="text-secondary mb-0">
@@ -54,7 +77,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section reveal">
         <div className="container">
           <div className="row g-4 align-items-start">
             {/* FORM */}
@@ -124,7 +147,7 @@ export default function Contact() {
                       </div>
 
                       <div className="col-12 col-md-6">
-                        <label className="form-label fw-semibold" htmlFor="nb_invites">Nombre d’invités</label>
+                        <label className="form-label fw-semibold" htmlFor="nb_invites">Nombre d'invités</label>
                         <input className="form-control" id="nb_invites" name="nb_invites" type="number" min="1" placeholder="Ex : 80" />
                       </div>
 
@@ -133,7 +156,7 @@ export default function Contact() {
                         <select className="form-select" id="creneau" name="creneau" defaultValue="">
                           <option value="">Peu importe</option>
                           <option value="Semaine (journée)">Semaine (journée)</option>
-                          <option value="Semaine (fin d'après-midi)">Semaine (fin d’après-midi)</option>
+                          <option value="Semaine (fin d'après-midi)">Semaine (fin d'après-midi)</option>
                           <option value="Week-end">Week-end</option>
                         </select>
                       </div>
