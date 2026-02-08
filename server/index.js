@@ -116,7 +116,7 @@ const html = `
       <p style="margin: 0;"><strong>Créneau préféré :</strong> ${safe(creneau || "-")}</p>
     </div>
 
-    <div style="padding: 12px 14px; border-left: 4px solid #C7A76A; background: #fff; border-radius: 10px;">
+    <div style="padding: 12px 14px; border-left: 4px solid #1F3A5F; background: #fff; border-radius: 10px;">
       <p style="margin: 0 0 6px;"><strong>Message :</strong></p>
       <p style="margin: 0; white-space: pre-wrap;">${safe(message)}</p>
     </div>
@@ -135,6 +135,7 @@ const html = `
       replyTo: email,             // quand tu réponds, ça répond au client
       subject,
       text,
+      html,
     });
 
     return res.status(200).json({ ok: true });
