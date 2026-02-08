@@ -28,11 +28,11 @@ export default function Prestations() {
     <>
 
       <div className="section">
-        <div className="container">
+        <div className="container reveal">
           <h1 className="titre-principal">Prestations</h1>
 
           <div className="row my-4">
-            <div className="col-12 col-md-4 my-3 reveal">
+            <div className="col-12 col-md-4 my-3">
               <div className="card h-100 shadow feature-card d-flex">
                 <div className="card-body d-flex flex-column">
                   <i className="bi bi-stars fs-2 titre-secondaire"></i>
