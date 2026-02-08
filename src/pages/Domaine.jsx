@@ -31,7 +31,7 @@ export default function Domaine() {
     <>
 
       <section className="section">
-        <div className="container shadow rounded p-4">
+        <div className="container shadow rounded p-4 reveal">
           <div className="row align-items-center gx-5 gy-4 gy-md-0">
             <div className="col-12 col-md-6 order-2 order-md-1">
               <h2 className="titre-principal">L'histoire du Château Moselly</h2>
