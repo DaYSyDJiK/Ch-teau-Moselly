@@ -29,6 +29,10 @@ export default function Domaine() {
   return (
 
     <>
+      <Helmet>
+        <title>Le domaine du Château Moselly - Histoire, cadre et atmosphère</title>
+        <meta name="description" content="Explorez le domaine du Château Moselly : un lieu chargé d'histoire, entouré de nature, idéal pour célébrer vos moments d'exception." />
+      </Helmet>
 
       <section className="section">
         <div className="container shadow rounded p-4 reveal">

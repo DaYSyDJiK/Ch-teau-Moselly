@@ -45,29 +45,35 @@ export default function Contact() {
   };
 
   useEffect(() => {
-      const elements = document.querySelectorAll(".reveal");
-  
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("active");
-            } else {
-              entry.target.classList.remove("active");
-            }
-  
-          });
-        },
-        { threshold: 0.30 }
-      );
-  
-      elements.forEach(el => observer.observe(el));
-  
-      return () => observer.disconnect();
-    }, []);
+    const elements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          } else {
+            entry.target.classList.remove("active");
+          }
+
+        });
+      },
+      { threshold: 0.30 }
+    );
+
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
+
+      <Helmet>
+        <title>Contact & demande de visite - Château Moselly</title>
+        <meta name="description" content="Contactez le Château Moselly pour une demande de visite ou d'information. Nous vous accompagnons dans l'organisation de votre événement." />
+      </Helmet>
+
       <section className="section section--tight pt-4 reveal">
         <div className="container pt-5">
           <h1 className="titre-principal mb-2 titre-principal">Demande de visite</h1>

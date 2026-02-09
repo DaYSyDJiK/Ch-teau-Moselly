@@ -27,6 +27,10 @@ export default function Infos() {
 
   return (
     <>
+      <Helmet>
+        <title>Informations pratiques - Accès, horaires & capacités | Château Moselly</title>
+        <meta name="description" content="Accès, localisation, capacités d'accueil, horaires et informations utiles pour organiser votre visite au Château Moselly." />
+      </Helmet>
 
       <section className="section section--tight pt-4 reveal">
         <div className="container pt-5">

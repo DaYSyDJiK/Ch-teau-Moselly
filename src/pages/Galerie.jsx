@@ -64,6 +64,11 @@ export default function Galerie() {
   return (
 
     <>
+      <Helmet>
+        <title>Galerie photos - Mariages et événements au Château Moselly</title>
+        <meta name="description" content="Parcourez la galerie photo du Château Moselly et plongez dans l'ambiance de nos mariages, réceptions et événements inoubliables." />
+      </Helmet>
+
       <section className="section reveal">
         <div className="container">
           <h1 className="titre-principal mb-3">Galerie</h1>

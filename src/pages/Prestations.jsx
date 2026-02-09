@@ -27,6 +27,11 @@ export default function Prestations() {
   return (
     <>
 
+      <Helmet>
+        <title>Prestations & services - Mariages et réceptions au Château Moselly</title>
+        <meta name="description" content="Découvrez les prestations du Château Moselly : mariages, réceptions privées, événements sur mesure dans un cadre d'exception." />
+      </Helmet>
+
       <div className="section">
         <div className="container reveal">
           <h1 className="titre-principal">Prestations</h1>
@@ -43,9 +48,9 @@ export default function Prestations() {
                     <li>Espaces adaptables selon votre projet et vos envies</li>
                     <li>Un lieu simple, humain et chargé d'histoire</li>
                   </ul>
-                <Link to="/contact" className="btn btn-principal mt-auto">
-                  Demander une visite
-                </Link>
+                  <Link to="/contact" className="btn btn-principal mt-auto">
+                    Demander une visite
+                  </Link>
                 </div>
               </div>
             </div>
@@ -62,9 +67,9 @@ export default function Prestations() {
                     <li>Une grande liberté d'organisation sans contraintes rigides</li>
                     <li>Un lieu different pour marquer le coup simplement</li>
                   </ul>
-                <Link to="/contact" className="btn btn-principal mt-auto">
-                  Demander une visite
-                </Link>
+                  <Link to="/contact" className="btn btn-principal mt-auto">
+                    Demander une visite
+                  </Link>
                 </div>
               </div>
             </div>
@@ -81,9 +86,9 @@ export default function Prestations() {
                     <li>Cadre naturel propice a la déconnexion</li>
                     <li>Une experience qui sort du quotidien</li>
                   </ul>
-                <Link to="/contact" className="btn btn-principal mt-auto">
-                  Demander une visite
-                </Link>
+                  <Link to="/contact" className="btn btn-principal mt-auto">
+                    Demander une visite
+                  </Link>
                 </div>
               </div>
             </div>

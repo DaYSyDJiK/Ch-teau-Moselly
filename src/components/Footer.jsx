@@ -50,6 +50,7 @@ export default function Footer() {
                             <li><NavLink to="/galerie" className={footerLinkClass}>Galerie</NavLink></li>
                             <li><NavLink to="/infos" className={footerLinkClass}>Infos pratiques</NavLink></li>
                             <li><NavLink to="/contact" className={footerLinkClass}>Contact</NavLink></li>
+                            <li><NavLink to="/mentions-legales" className={footerLinkClass}>Mentions Légales</NavLink></li>
                         </ul>
                     </div>
                 </div>

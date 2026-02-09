@@ -1,5 +1,7 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
 import g1 from "../images/g1.jpg";
 import g2 from "../images/g2.jpg";
 import g3 from "../images/g3.jpg";
@@ -38,6 +40,10 @@ export default function Home() {
 
   return (
     <>
+    <Helmet>
+        <title>Château Moselly | Domaine de réception pour mariages & événements</title>
+        <meta name="description" content="Découvrez le Château Moselly, un domaine de caractère pour mariages, réceptions et événements privés dans un cadre naturel et élégant." />
+      </Helmet>
       <section className="hero">
         <div className="hero-content reveal section">
           <div className="container">
