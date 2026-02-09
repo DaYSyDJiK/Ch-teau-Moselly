@@ -84,20 +84,20 @@ app.post("/api/visite", async (req, res) => {
            Transport SMTP (avec timeouts)
         ================================ */
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: Number(process.env.SMTP_PORT),
-            secure: process.env.SMTP_SECURE === "true",
+            host: process.env.SMTP_HOST,              // smtp-relay.brevo.com
+            port: Number(process.env.SMTP_PORT),      // 587
+            secure: false,                            // IMPORTANT: false sur 587
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS,
             },
-
-            // ✅ FORCER IPv4 (corrige ENETUNREACH sur Render)
-            family: 4,
-
-            connectionTimeout: 10_000,
-            greetingTimeout: 10_000,
-            socketTimeout: 10_000,
+            requireTLS: true,                         // force STARTTLS sur 587
+            tls: {
+                servername: process.env.SMTP_HOST,      // évite des soucis SNI
+            },
+            connectionTimeout: 30_000,
+            greetingTimeout: 30_000,
+            socketTimeout: 30_000,
         });
 
         const subject = `Demande de visite - ${prenom} ${nom} (${type_evenement})`;
