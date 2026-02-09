@@ -12,10 +12,13 @@ dotenv.config();
 
 const app = express();
 
+const SMTP_PORT = Number(process.env.SMTP_PORT);
+const SMTP_SECURE = process.env.SMTP_SECURE === "true";
+
 /* ================================
    ⚠️ OBLIGATOIRE SUR RENDER
 ================================ */
-app.set("trust proxy", true);
+app.set("trust proxy", 1);
 
 /* ================================
    Middlewares globaux
@@ -40,6 +43,7 @@ const limiter = rateLimit({
     limit: 10,
     standardHeaders: true,
     legacyHeaders: false,
+    keyGenerator: (req) => req.ip,
 });
 app.use("/api/", limiter);
 
@@ -84,17 +88,16 @@ app.post("/api/visite", async (req, res) => {
            Transport SMTP (avec timeouts)
         ================================ */
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,              // smtp-relay.brevo.com
-            port: Number(process.env.SMTP_PORT),      // 587
-            secure: false,                            // IMPORTANT: false sur 587
+            host: process.env.SMTP_HOST,
+            port: SMTP_PORT,
+            secure: SMTP_SECURE, // true si 465, false si 587
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS,
             },
-            requireTLS: true,                         // force STARTTLS sur 587
-            tls: {
-                servername: process.env.SMTP_HOST,      // évite des soucis SNI
-            },
+            // Si on est sur 587 (secure=false), on force STARTTLS
+            ...(SMTP_SECURE ? {} : { requireTLS: true }),
+            tls: { servername: process.env.SMTP_HOST },
             connectionTimeout: 30_000,
             greetingTimeout: 30_000,
             socketTimeout: 30_000,
