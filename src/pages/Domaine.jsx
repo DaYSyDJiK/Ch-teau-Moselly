@@ -1,6 +1,7 @@
 import chateau1 from "../images/chateau1.jpg";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function Domaine() {
 

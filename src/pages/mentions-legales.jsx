@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 <Helmet>
     <meta name="robots" content="noindex, nofollow" />

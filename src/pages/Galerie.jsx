@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 import g1 from "../images/g1.jpg";
 import g2 from "../images/g2.jpg";

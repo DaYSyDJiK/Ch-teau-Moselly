@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 export default function Contact() {
   const API_URL = "http://localhost:5000/api/visite";
