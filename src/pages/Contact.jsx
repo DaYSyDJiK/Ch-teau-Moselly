@@ -2,8 +2,10 @@ import { useMemo, useState } from "react";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
+import { API_BASE_URL } from "../config/api";
+
 export default function Contact() {
-  const API_URL = "http://localhost:5000/api/visite";
+  const API_URL = `${API_BASE_URL}/api/visite`;
 
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
   const [errorMsg, setErrorMsg] = useState("");
