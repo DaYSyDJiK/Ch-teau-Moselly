@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
+
 
 export default function Prestations() {
   useEffect(() => {
@@ -25,14 +25,16 @@ export default function Prestations() {
     return () => observer.disconnect();
   }, []);
 
+
+  useSEO({
+            title: "Prestations & services - Mariages et réceptions au Château Moselly",
+            description:
+              "Découvrez les prestations du Château Moselly : mariages, réceptions privées, événements sur mesure dans un cadre d'exception.",
+          });
+
+
   return (
     <>
-
-      <Helmet>
-        <title>Prestations & services - Mariages et réceptions au Château Moselly</title>
-        <meta name="description" content="Découvrez les prestations du Château Moselly : mariages, réceptions privées, événements sur mesure dans un cadre d'exception." />
-      </Helmet>
-
       <div className="section">
         <div className="container reveal">
           <h1 className="titre-principal">Prestations</h1>

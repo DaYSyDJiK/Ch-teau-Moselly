@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useEffect } from "react";
-import { Helmet } from "react-helmet";
+import useSEO from "../hooks/useSEO";
+
 
 import { API_BASE_URL } from "../config/api";
 
@@ -69,13 +70,16 @@ export default function Contact() {
     return () => observer.disconnect();
   }, []);
 
+
+  useSEO({
+    title: "Contact & demande de visite | Château Moselly",
+    description:
+      "Contactez le Château Moselly à Chaudenay pour organiser votre mariage ou événement privé dans un cadre d'exception.",
+  });
+
+
   return (
     <>
-
-      <Helmet>
-        <title>Contact & demande de visite - Château Moselly</title>
-        <meta name="description" content="Contactez le Château Moselly pour une demande de visite ou d'information. Nous vous accompagnons dans l'organisation de votre événement." />
-      </Helmet>
 
       <section className="section section--tight pt-4 reveal">
         <div className="container pt-5">
