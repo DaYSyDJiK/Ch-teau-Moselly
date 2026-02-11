@@ -6,8 +6,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
-// ❌ on n'utilise plus nodemailer
-// import nodemailer from "nodemailer";
+
 
 // ✅ Brevo API (HTTPS)
 import Brevo from "@getbrevo/brevo";
@@ -32,18 +31,31 @@ app.use(helmet());
 app.use(express.json());
 
 // CORS
+const allowedOrigins = (process.env.CORS_ORIGIN || "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
+
 app.use(
-    cors({
-        origin: process.env.CORS_ORIGIN,
-    })
+  cors({
+    origin: (origin, callback) => {
+      // autorise les appels sans origin (Postman, server-to-server)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error(`Not allowed by CORS: ${origin}`));
+    },
+  })
 );
 
 // Rate limit (APRÈS trust proxy)
 const limiter = rateLimit({
-    windowMs: 10 * 60 * 1000,
-    limit: 10,
-    standardHeaders: true,
-    legacyHeaders: false,
+  windowMs: 10 * 60 * 1000,
+  limit: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
 });
 app.use("/api/", limiter);
 
@@ -51,42 +63,42 @@ app.use("/api/", limiter);
    Route test
 ================================ */
 app.get("/api/health", (req, res) => {
-    res.json({ ok: true, message: "Backend Moselly OK" });
+  res.json({ ok: true, message: "Backend Moselly OK" });
 });
 
 /* ================================
    Route formulaire
 ================================ */
 app.post("/api/visite", async (req, res) => {
-    try {
-        const {
-            prenom,
-            nom,
-            email,
-            telephone,
-            type_evenement,
-            date_souhaitee,
-            nb_invites,
-            creneau,
-            message,
-            website,
-        } = req.body;
+  try {
+    const {
+      prenom,
+      nom,
+      email,
+      telephone,
+      type_evenement,
+      date_souhaitee,
+      nb_invites,
+      creneau,
+      message,
+      website,
+    } = req.body;
 
-        // Honeypot anti-bot
-        if (website) {
-            return res.status(200).json({ ok: true });
-        }
+    // Honeypot anti-bot
+    if (website) {
+      return res.status(200).json({ ok: true });
+    }
 
-        // Validation minimale
-        if (!prenom || !nom || !email || !type_evenement || !message) {
-            return res
-                .status(400)
-                .json({ ok: false, error: "Champs requis manquants" });
-        }
+    // Validation minimale
+    if (!prenom || !nom || !email || !type_evenement || !message) {
+      return res
+        .status(400)
+        .json({ ok: false, error: "Champs requis manquants" });
+    }
 
-        const subject = `Demande de visite - ${prenom} ${nom} (${type_evenement})`;
+    const subject = `Demande de visite - ${prenom} ${nom} (${type_evenement})`;
 
-        const text = `
+    const text = `
 Nouvelle demande de visite - Château Moselly
 
 Prénom: ${prenom}
@@ -102,16 +114,16 @@ Message:
 ${message}
 `.trim();
 
-        const safe = (v) =>
-            String(v ?? "").replace(/[&<>"']/g, (c) => ({
-                "&": "&amp;",
-                "<": "&lt;",
-                ">": "&gt;",
-                '"': "&quot;",
-                "'": "&#39;",
-            }[c]));
+    const safe = (v) =>
+      String(v ?? "").replace(/[&<>"']/g, (c) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      }[c]));
 
-        const html = `
+    const html = `
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f6f1eb; padding:24px;">
   <tr>
     <td align="center">
@@ -170,54 +182,54 @@ ${message}
 </table>
 `.trim();
 
-        console.log("BREVO_API_KEY:", process.env.BREVO_API_KEY);
+    
 
-        /* ================================
-           ✅ Envoi email via Brevo API (HTTPS)
-           -> fonctionne sur Render (pas besoin SMTP)
-        ================================ */
+    /* ================================
+       ✅ Envoi email via Brevo API (HTTPS)
+       -> fonctionne sur Render (pas besoin SMTP)
+    ================================ */
 
-        // 1) Créer l'instance API Brevo et injecter la clé
-        const apiInstance = new Brevo.TransactionalEmailsApi();
-        apiInstance.setApiKey(
-            Brevo.TransactionalEmailsApiApiKeys.apiKey,
-            process.env.BREVO_API_KEY
-        );
+    // 1) Créer l'instance API Brevo et injecter la clé
+    const apiInstance = new Brevo.TransactionalEmailsApi();
+    apiInstance.setApiKey(
+      Brevo.TransactionalEmailsApiApiKeys.apiKey,
+      process.env.BREVO_API_KEY
+    );
 
-        // ⚠️ MAIL_FROM doit être un email SEUL (pas "Nom <email>")
-        // Exemple conseillé sur Render:
-        // MAIL_FROM = maxime.gauthier112@gmail.com
-        const senderEmail = process.env.MAIL_FROM;
+    // ⚠️ MAIL_FROM doit être un email SEUL (pas "Nom <email>")
+    // Exemple conseillé sur Render:
+    // MAIL_FROM = maxime.gauthier112@gmail.com
+    const senderEmail = process.env.MAIL_FROM;
 
-        // 2) Envoyer l'email transactionnel
-        await apiInstance.sendTransacEmail({
-            subject,
-            sender: {
-                name: "Château Moselly",
-                email: senderEmail,
-            },
-            to: [{ email: process.env.MAIL_TO }],
-            replyTo: { email }, // répondre au client
-            textContent: text,
-            htmlContent: html,
-        });
+    // 2) Envoyer l'email transactionnel
+    await apiInstance.sendTransacEmail({
+      subject,
+      sender: {
+        name: "Château Moselly",
+        email: senderEmail,
+      },
+      to: [{ email: process.env.MAIL_TO }],
+      replyTo: { email }, // répondre au client
+      textContent: text,
+      htmlContent: html,
+    });
 
-        return res.status(200).json({ ok: true });
-    } catch (err) {
-        /* ================================
-           🔥 LOGS CRITIQUES
-        ================================ */
-        console.error("❌ ERREUR /api/visite");
-        console.error(err);
-        console.error("message:", err?.message);
-        console.error("code:", err?.code);
-        console.error("response:", err?.response);
+    return res.status(200).json({ ok: true });
+  } catch (err) {
+    /* ================================
+       🔥 LOGS CRITIQUES
+    ================================ */
+    console.error("❌ ERREUR /api/visite");
+    console.error(err);
+    console.error("message:", err?.message);
+    console.error("code:", err?.code);
+    console.error("response:", err?.response);
 
-        return res.status(500).json({
-            ok: false,
-            error: err?.message || "Erreur serveur",
-        });
-    }
+    return res.status(500).json({
+      ok: false,
+      error: err?.message || "Erreur serveur",
+    });
+  }
 });
 
 /* ================================
@@ -225,5 +237,5 @@ ${message}
 ================================ */
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`✅ Server running on http://localhost:${PORT}`);
+  console.log(`✅ Server running on http://localhost:${PORT}`);
 });
