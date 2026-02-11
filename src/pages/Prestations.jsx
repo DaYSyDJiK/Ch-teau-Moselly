@@ -17,7 +17,7 @@ export default function Prestations() {
 
         });
       },
-      { threshold: 0.30 }
+      { threshold: 0.10 }
     );
 
     elements.forEach(el => observer.observe(el));
