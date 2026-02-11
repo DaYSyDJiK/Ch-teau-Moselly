@@ -19,7 +19,7 @@ export default function Domaine() {
 
         });
       },
-      { threshold: 0.50 }
+      { threshold: 0.10 }
     );
 
     elements.forEach(el => observer.observe(el));
