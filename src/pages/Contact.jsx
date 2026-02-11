@@ -74,7 +74,7 @@ export default function Contact() {
   useSEO({
     title: "Contact & demande de visite | Château Moselly",
     description:
-      "Contactez le Château Moselly à Chaudenay pour organiser votre mariage ou événement privé dans un cadre d'exception.",
+      "Contactez le Château Moselly à Chaudeney pour organiser votre mariage ou événement privé dans un cadre d'exception.",
   });
 
 
@@ -206,7 +206,7 @@ export default function Contact() {
               <div className="card shadow-sm border-0">
                 <div className="card-body p-4">
                   <h2 className="h5 titre-principal mb-3">Infos pratiques</h2>
-                  <p className="mb-2"><span className="fw-semibold">Lieu :</span> <span className="text-secondary">Chaudenay (près de Toul)</span></p>
+                  <p className="mb-2"><span className="fw-semibold">Lieu :</span> <span className="text-secondary">Chaudeney (près de Toul)</span></p>
                   <p className="mb-2"><span className="fw-semibold">Capacité :</span> <span className="text-secondary">jusqu'à ~100 personnes</span></p>
                   <p className="mb-0"><span className="fw-semibold">Saison :</span> <span className="text-secondary">printemps - été</span></p>
                 </div>

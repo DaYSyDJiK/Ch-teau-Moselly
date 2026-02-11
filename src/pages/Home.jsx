@@ -55,7 +55,7 @@ export default function Home() {
               <h1>Château Moselly</h1>
               <h2>Un lieu d'exception pour vos mariages et événements en plein air</h2>
 
-              <p className="pt-2">Au cœur de la nature, à l'écart de l'agitation urbaine, à Chaudenay près de Toul, le Château Moselly vous ouvre ses extérieurs pour célébrer les moments qui comptent.
+              <p className="pt-2">Au cœur de la nature, à l'écart de l'agitation urbaine, à Chaudeney près de Toul, le Château Moselly vous ouvre ses extérieurs pour célébrer les moments qui comptent.
                 Mariage, vin d'honneur, cérémonie, réception privée ou événement d'entreprise : profitez d'un cadre authentique, élégant et préservé, propice aux souvenirs inoubliables.</p>
             </div>
 

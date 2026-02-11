@@ -43,7 +43,7 @@ export default function Domaine() {
               <h2 className="titre-principal">L'histoire du Château Moselly</h2>
               <h3 className="titre-principal">Un lieu façonné par le temps et la vie de famille</h3>
               <br />
-              <p>Implanté à Chaudenay, à proximité de Toul, le Château Moselly est avant tout une demeure familiale, transmise et habitée au fil des générations. Longtemps, le domaine a vécu au rythme de la vie rurale : une propriété entretenue avec soin, entourée de terres, d'une ancienne écurie et de poulaillers qui permettaient à la famille de compléter ses revenus et de faire vivre le lieu.
+              <p>Implanté à Chaudeney, à proximité de Toul, le Château Moselly est avant tout une demeure familiale, transmise et habitée au fil des générations. Longtemps, le domaine a vécu au rythme de la vie rurale : une propriété entretenue avec soin, entourée de terres, d'une ancienne écurie et de poulaillers qui permettaient à la famille de compléter ses revenus et de faire vivre le lieu.
                 <br /><br />
                 Au fil des années, les usages ont évolué. Certaines dépendances ont disparu, mais l'essentiel est resté : <strong>le château, son parc et cette atmosphère paisible</strong>, préservée de l'agitation urbaine. Aujourd'hui encore, la famille qui y réside consacre une grande partie de son temps à l'entretien du domaine et de ses extérieurs, afin de conserver l'authenticité et l'élégance du lieu.
                 <br /><br />
