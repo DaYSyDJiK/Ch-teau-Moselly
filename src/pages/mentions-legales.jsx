@@ -1,18 +1,19 @@
-import { Helmet } from "react-helmet";
+import useSEO from "../hooks/useSEO";
 
-<Helmet>
-    <meta name="robots" content="noindex, nofollow" />
-</Helmet>
+export default function MentionsLegales() {
+
+  useSEO({
+    title: "Mentions légales | Château Moselly",
+    description: "Mentions légales du site Château Moselly.",
+    robots: "noindex, nofollow",
+  });
+
+}
 
 export default function MentionsLegales() {
     return (
 
         <>
-
-            <Helmet>
-                <title>Mentions légales - Château Moselly</title>
-                <meta name="description" content="Consultez les mentions légales du site du Château Moselly, domaine de réception pour événements privés et professionnels." />
-            </Helmet>
 
             <main className="container py-5">
                 {/* Header */}

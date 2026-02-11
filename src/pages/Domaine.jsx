@@ -1,7 +1,7 @@
 import chateau1 from "../images/chateau1.jpg";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import useSEO from "../hooks/useSEO";
 
 export default function Domaine() {
 
@@ -27,14 +27,15 @@ export default function Domaine() {
     return () => observer.disconnect();
   }, []);
 
+   useSEO({
+    title: "Le domaine du Château Moselly - Histoire, cadre et atmosphère",
+    description:
+      "Explorez le domaine du Château Moselly : un lieu chargé d'histoire, entouré de nature, idéal pour célébrer vos moments d'exception.",
+  });
+
   return (
 
     <>
-      <Helmet>
-        <title>Le domaine du Château Moselly - Histoire, cadre et atmosphère</title>
-        <meta name="description" content="Explorez le domaine du Château Moselly : un lieu chargé d'histoire, entouré de nature, idéal pour célébrer vos moments d'exception." />
-      </Helmet>
-
       <section className="section">
         <div className="container shadow rounded p-4 reveal">
           <div className="row align-items-center gx-5 gy-4 gy-md-0">
