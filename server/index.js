@@ -8,6 +8,8 @@ import rateLimit from "express-rate-limit";
 
 
 // ✅ Brevo API (HTTPS)
+
+
 import Brevo from "@getbrevo/brevo";
 
 dotenv.config();
@@ -22,9 +24,6 @@ app.set("trust proxy", 1);
 /* ================================
    Middlewares globaux
 ================================ */
-
-// Sécurité headers
-app.use(helmet());
 
 // Parser JSON
 app.use(express.json());
