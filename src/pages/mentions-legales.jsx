@@ -1,14 +1,10 @@
 import useSEO from "../hooks/useSEO";
 
-export default function MentionsLegales() {
-
   useSEO({
     title: "Mentions légales | Château Moselly",
     description: "Mentions légales du site Château Moselly.",
     robots: "noindex, nofollow",
   });
-
-}
 
 export default function MentionsLegales() {
     return (
