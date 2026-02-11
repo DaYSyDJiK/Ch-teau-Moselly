@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 import g1 from "../images/g1.jpg";
 import g2 from "../images/g2.jpg";
@@ -64,6 +65,11 @@ export default function Galerie() {
   return (
 
     <>
+      <Helmet>
+        <title>Galerie photos - Mariages et événements au Château Moselly</title>
+        <meta name="description" content="Parcourez la galerie photo du Château Moselly et plongez dans l'ambiance de nos mariages, réceptions et événements inoubliables." />
+      </Helmet>
+
       <section className="section reveal">
         <div className="container">
           <h1 className="titre-principal mb-3">Galerie</h1>
