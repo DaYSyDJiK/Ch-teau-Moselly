@@ -21,14 +21,14 @@ export default function Footer() {
                         <div className="d-flex gap-3">
                             <a
                                 className="text-secondary"
-                                href="#"
+                                href="https://www.instagram.com/chateaumoselly/"
                                 target="_blank"
                                 rel="nofollow noopener noreferrer"
                                 aria-label="Instagram"
                             >
                                 <i className="bi bi-instagram fs-4"></i>
                             </a>
-                            <a
+                            {/* <a
                                 className="text-secondary"
                                 href="#"
                                 target="_blank"
@@ -36,7 +36,7 @@ export default function Footer() {
                                 aria-label="Facebook"
                             >
                                 <i className="bi bi-facebook fs-4"></i>
-                            </a>
+                            </a> */}
                         </div>
                     </div>
 
@@ -50,6 +50,7 @@ export default function Footer() {
                             <li><NavLink to="/galerie" className={footerLinkClass}>Galerie</NavLink></li>
                             <li><NavLink to="/infos" className={footerLinkClass}>Infos pratiques</NavLink></li>
                             <li><NavLink to="/contact" className={footerLinkClass}>Contact</NavLink></li>
+                            <li><NavLink to="/mentions-legales" className={footerLinkClass}>Mentions Légales</NavLink></li>
                         </ul>
                     </div>
                 </div>

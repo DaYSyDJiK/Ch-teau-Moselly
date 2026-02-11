@@ -12,6 +12,7 @@ import Prestations from "./pages/Prestations";
 import Galerie from "./pages/Galerie";
 import Infos from "./pages/Infos";
 import Contact from "./pages/Contact";
+import MentionsLegales from "./pages/mentions-legales";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { path: "galerie", element: <Galerie /> },
       { path: "infos", element: <Infos /> },
       { path: "contact", element: <Contact /> },
+      { path: "mentions-legales", element: <MentionsLegales /> },
     ],
   },
 ]);
